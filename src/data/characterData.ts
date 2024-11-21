@@ -2,8 +2,10 @@
 interface CharacterBase {
 	className: string;
   dpsRating: number; // 1-10
+	healingRating: number; // 1-10
   effectiveRange: Array<string>;
   // qualtities: string[];
+	mobilityRating: number;
 	qualities: (string | [string, string])[];
 }
 
@@ -11,18 +13,19 @@ const dofusClasses: CharacterBase[] = [
 	{
 		className: "Iop",
   	dpsRating: 10,
-  	effectiveRange: ["shortRange", "mediumRange"],
+		healingRating: 0,
+  	effectiveRange: ["shortRange", "mediumRange."],
+		mobilityRating: 8,
   	qualities: [
 			"erosion", 
 			["apReduction", "Precipitate usage"], 
 			"mpReduction", 
-			["buffAp", "Precipitate usage"], 
+			["buffAp", "Precipitate usage."], 
 			"buffMp", 
-			"buffDam",
-			// "buffLinearDamage",  REPLACE buffDam
+			"buffLinearDamage",
 			"buffPower", 
 			"buffShieldPoints", 
-			"soloMobility", 
+			"teleport", 
 			"pushBack", 
 			"attraction",
 			"applyVulnerability",
@@ -34,36 +37,40 @@ const dofusClasses: CharacterBase[] = [
 	{
 		className: "Enutrof",
   	dpsRating: 7,
+		healingRating: 8,
   	effectiveRange: ["mediumRange", "longRange"],
+		mobilityRating: 8,
   	qualities: [
 			"apReduction",
 			"mpReduction",
 			"rangeReduction",
 			"buffAp",
 			"buffMp",
-			["buffPower", "Self only"],
+			"buffRange",
+			"buffPower",
 			"summoner",
 			"healer",
-			"soloMobility",
+			"canSwap",
 			"pushBack",
-			"attraction",
-			// "unmoveable",
-			"invulnerable",
-			"longRangeInvuln",
 			"applyGravity",
 			"-effectDuraton",
 			"canPacifist",
+			"applyUnlockable",
+			["applyLifesteal", "Mine Fire, similar to Prey."],
 		],
 	},
 	{
 		className: "Enirispa",
   	dpsRating: 5,
+		healingRating: 10,
   	effectiveRange: ["mediumRange", "longRange"],
+		mobilityRating: 5,
   	qualities: [
 			"erosion",
   		"apReduction",
   		"mpReduction",
 			"rangeReduction",
+			"rangeSteal",
 			"powerReduction",
 			"linearDamageReduction",
   		"buffAp",
@@ -73,10 +80,6 @@ const dofusClasses: CharacterBase[] = [
   		"summoner",
   		"healer",
   		"pushBack",
-  		"unmoveable",
-  		"invulnerable",
-  		"longRangeVuln",
-  		"canGravity",
   		"-effectDuraton",
   		"canUnhealable",
 			["applyLifesteal", "Bloodless Word, similar to Prey."],
@@ -85,8 +88,10 @@ const dofusClasses: CharacterBase[] = [
 	},
 	{
 		className: "Eliotrope",
-  	dpsRating: 7,
+  	dpsRating: 7, // post Portal nerf.
+		healingRating: 7,
   	effectiveRange: ["mediumRange", "longRange"],
+		mobilityRating: 10,
   	qualities: [
 			"mpReduction",
   		"rangeReduction",
@@ -95,16 +100,19 @@ const dofusClasses: CharacterBase[] = [
   		"buffPower",
   		"buffPercentDamage",
   		"healer",
-  		"soloMobility",
+  		["canTeleport", "Exodus."],
   		"pushBack",
   		"applyVulnerability",
   		"-effectDuraton",
+			"portalUser",
 		],
 	},
 	{
 		className: "Pandawa",
   	dpsRating: 6,
+		healingRating: 6,
   	effectiveRange: ["meleeRange", "mediumRange", "longRange"], // melee or short, undecided
+		mobilityRating: 10,
   	qualities: [
 			"mpReduction",
   		"powerReduction",
@@ -114,156 +122,18 @@ const dofusClasses: CharacterBase[] = [
   		["buffShieldPoints", "Self only."], 
   		"summoner",
   		"healer",
-  		"soloMobility",
+  		["canTeleport", "Eviction."],
+			"canSwap",
+			"canAdvanceCells",
   		"pushBack",
   		"attraction",
   		"applyVulnerability",
   		"unlockable",
   		"closeRangeInvuln",
   		"canRooted",
+			"canCarry",
 		],
 	},
 ]
 
 export default dofusClasses
-
-// // all mentioned properties are assumed true
-// interface Iop extends CharacterBase {
-//   erosion: boolean;
-//   apReduction: boolean;
-//   mpReduction: boolean;
-//   buffAp: boolean;
-//   buffMp: boolean;
-//   buffDam: boolean; // divine blade
-//   buffPower: boolean;
-//   buffShieldPoints: boolean;
-//   soloMobility: boolean;
-//   pushBack: boolean;
-//   attraction: boolean;
-//   applyVulnerability: [boolean, string];
-//   unmoveable: boolean;
-//   invulnerable: boolean;
-//   longRangeVuln: boolean;
-// }
-
-// const iopCharacter:  Iop = {
-//   dpsRating: 10,
-//   effectiveRange: ["closeRange", "midRange"],
-//   erosion: true,
-//   apReduction: true,
-//   mpReduction: true,
-//   buffAp: true,
-//   buffMp: true,
-//   buffDam: true,
-//   buffPower: true,
-//   buffShieldPoints: true,
-//   soloMobility: true,
-//   pushBack: true,
-//   attraction: true,
-//   applyVulnerability: [true, "string"],
-//   unmoveable: true,
-//   invulnerable: true,
-//   longRangeVuln: true,
-// };
-
-// export default {
-//   iopCharacter: {
-//     dpsRating: 10,
-//     effectiveRange: ["closeRange", "midRange"],
-//     erosion: true,
-//     apReduction: true,
-//     mpReduction: true,
-//     buffAp: true,
-//     buffMp: true,
-//     buffDam: true,
-//     buffPower: true,
-//     buffShieldPoints: true,
-//     soloMobility: true,
-//     pushBack: true,
-//     attraction: true,
-//     applyVulnerability: [true, "string"],
-//     unmoveable: true,
-//     invulnerable: true,
-//     longRangeVuln: true,
-//   },
-// }
-
-// // export interface Enutrof extends CharacterBase {
-// //   // erosion: boolean;
-// //   apReduction: boolean;
-// //   mpReduction: boolean;
-// //   rangeReduction: boolean;
-// //   buffAp: boolean;
-// //   buffMp: boolean;
-// //   // buffShieldPoints: boolean;
-// //   // buffDamage: boolean;
-// //   buffPower: [boolean, string]; // where string indicates it's for self only.
-// //   // shieldPoints: boolean;
-// //   summoner: boolean;
-// //   healer: [boolean, string]; // true and tier. Could be true and number instead.
-// //   soloMobility: boolean;
-// //   pushBack: boolean;
-// //   attraction: boolean;
-// //   // vulnerability: boolean;
-// //   unmoveable: boolean;
-// //   invulnerable: boolean;
-// //   longRangeInvuln: boolean;
-// //   canGravity: boolean;
-// //   minusEffectDuraton: boolean;
-// //   canPacifist: boolean;
-// // }
-
-// // export interface Enirispa extends CharacterBase {
-// //   erosion: boolean;
-// //   apReduction: boolean;
-// //   mpReduction: boolean;
-// //   buffAp: boolean;
-// //   buffMp: boolean;
-// //   // buffDamage: boolean;
-// //   buffPower: boolean;
-// //   shieldPoints: boolean;
-// //   summoner: boolean;
-// //   healer: boolean;
-// //   soloMobility: boolean;
-// //   pushBack: boolean;
-// //   // attraction: boolean;
-// //   // vulnerability: boolean;
-// //   unmoveable: boolean;
-// //   invulnerable: boolean;
-// //   longRangeVuln: boolean;
-// //   canGravity: boolean;
-// //   minusEffectDuraton: boolean;
-// //   canPacifist: boolean;
-// // }
-
-// // export interface Eliotrope extends CharacterBase {
-// //   mpReduction: boolean;
-// //   rangeReduction: boolean;
-// //   buffAp: boolean;
-// //   buffMp: boolean;
-// //   buffPower: boolean;
-// //   buffPercentDamage: boolean;
-// //   healer: boolean;
-// //   soloMobility: boolean;
-// //   pushBack: boolean;
-// //   applyVulnerability: [boolean, string];
-// //   minusEffectDuraton: boolean;
-// // }
-
-// // export interface Panda extends CharacterBase {
-// //   mpReduction: boolean;
-// //   powerReduction: boolean;
-// //   buffAp: [boolean, string]; // ap self only
-// //   buffMp: boolean;
-// //   buffPower: boolean;
-// //   buffShieldPoints: [boolean, string];
-// //   summoner: boolean;
-// //   healer: boolean;
-// //   soloMobility: boolean;
-// //   pushBack: boolean;
-// //   attraction: boolean;
-// //   applyVulnerability: [boolean, string];
-// //   unlockable: [boolean, string];
-// //   closeRangeInvuln: boolean;
-// //   canRooted: [boolean, string];
-// // }
