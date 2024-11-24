@@ -2,24 +2,20 @@
 import dofusClasses from "../data/dofusClasses";
 
 export default function CharacterSelect() {
-    // console.log(">>>", dofusClasses);
 
-    //
-    const hoverButton = () => {
-        // alert("mouse entered")
-        const dps = dofusClasses.map((item) => (item.dpsRating));
-        alert(dps)
+    const hoverButton = (x: number) => { // poor var name on purpose, to make a point!
+        alert(x)
     }
 
     return (
         <div>
             This is CharacterSelect!
             <div>
-                {/* {dofusClasses.map((index) => index.className)} */}
+                {/* {dofusClasses.map((item) => item.className)} */}
                 {dofusClasses.map((item, index) => (
                     <button
                         key={index}
-                        onMouseEnter={hoverButton}
+                        onMouseEnter={() => hoverButton(item.dpsRating)}
                     >
                         {item.className}
                     </button>
