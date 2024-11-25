@@ -1,5 +1,4 @@
 /* Dofus Team Builder c: */
-
 export interface CharacterBase {
 	className: string;
 	dpsRating: number; // 1-10
