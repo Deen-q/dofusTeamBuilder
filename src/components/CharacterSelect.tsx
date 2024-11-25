@@ -5,11 +5,11 @@ import dofusClasses from "../data/dofusClasses";
 export default function CharacterSelect() {
     const [characterSelected, setCharacterSelected] = useState(Number());
 
-    const hoverButton = (x: number) => {
+    const hoverButton = (x: number) => { // to be -> `character: CharacterBase`
         console.log(x);
     }
 
-    const handleClick = (y: number) => {
+    const handleClick = (y: number) => { // to be -> `character: CharacterBase`
         setCharacterSelected(y)
     }
 
