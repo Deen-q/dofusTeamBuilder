@@ -1,12 +1,12 @@
 /* Dofus Team Builder c: */
 
-interface CharacterBase {
+export interface CharacterBase {
 	className: string;
 	dpsRating: number; // 1-10
 	healingRating: number; // 1-10
 	effectiveRange: Array<string>;
-	// qualtities: string[];
 	mobilityRating: number;
+	// qualtities: string[];
 	qualities: (string | [string, string])[];
 }
 

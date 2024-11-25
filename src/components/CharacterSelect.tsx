@@ -3,13 +3,13 @@ import { useState } from "react";
 import dofusClasses from "../data/dofusClasses";
 
 export default function CharacterSelect() {
-    const [characterSelected, setCharacterSelected] = useState(Number()); // 3) characterSelected is item.mobilityRating
+    const [characterSelected, setCharacterSelected] = useState(Number());
 
-    const hoverButton = (x: number) => { // poor var name on purpose, to make a point!
+    const hoverButton = (x: number) => {
         console.log(x);
     }
 
-    const handleClick = (y: number) => { // 2) y = item.mobilityRating
+    const handleClick = (y: number) => {
         setCharacterSelected(y)
     }
 
@@ -20,14 +20,18 @@ export default function CharacterSelect() {
                 {dofusClasses.map((item, index) => (
                     <button
                         key={index}
-                        onMouseEnter={() => hoverButton(item.dpsRating)}
-                        onClick={() => handleClick(item.mobilityRating)} // 1) passes item.mobilityRating to handleClick
+                        onMouseEnter={() => hoverButton(item.dpsRating)} // x
+                        onClick={() => handleClick(item.mobilityRating)} // y
                     >
                         {item.className}
+                        {index}
                     </button>
                 ))}
             </div>
-            <div>Character's Mobility Score: {characterSelected}</div> {/* 4) Bingo -> item.mobilityRating */}
+            <div>Character's Mobility Score: {characterSelected}</div>
         </div>
     )
 }
+
+// useContext to save state from button press?
+// so that CharacterDisplay can use it
