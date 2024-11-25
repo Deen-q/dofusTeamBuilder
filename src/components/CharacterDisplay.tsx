@@ -10,6 +10,7 @@ export default function CharacterDisplay() {
         <div>
             <h2>{characterSelected?.className}</h2> {/* fix ? if needed*/}
             <p>Qualities: {characterSelected?.qualities.join(", ")}</p>
+            {/* Add MORE qualities here - maybe even rename Qualities to something else? */}
         </div>
     )
 }

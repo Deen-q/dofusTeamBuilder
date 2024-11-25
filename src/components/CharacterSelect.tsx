@@ -36,5 +36,7 @@ export default function CharacterSelect() {
     )
 }
 
-// useContext to save state from button press?
-// so that CharacterDisplay can use it
+/*
+- why does L26 not work anymore (something about item being the entire object)
+- create useContext practice file, with increasing lvls of difficulty (sep repo?)
+*/
