@@ -1,10 +1,11 @@
 /* Dofus Team Builder c: */
 import CharacterSelect from './components/CharacterSelect';
+import { CharacterProvider } from './context/CharacterContext';
 
 export default function App() {
   return (
-    <div className="App">
+    <CharacterProvider> {/* From CharacterContext */}
       <CharacterSelect />
-    </div>
+    </CharacterProvider>
   );
 }
