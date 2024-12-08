@@ -7,11 +7,7 @@ export default function CharacterSelect() {
     const { selectedCharacter, setSelectedCharacter } = useContext(CharacterContext) || {};
     const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
 
-    // const hoverButton = (x: number) => { // to be -> `character: CharacterBase`
-    //     console.log(x);
-    // }
-
-    const handleClick = (character: CharacterBase) => { // to be -> `character: CharacterBase`
+    const handleSelection = (character: CharacterBase) => { // to be -> `character: CharacterBase`
         setSelectedCharacter?.(character)
     }
 
@@ -21,9 +17,9 @@ export default function CharacterSelect() {
         }
     }
 
-    // const removeFromTeamDisplay = (itemToRemove: string) => {
-    //     setTeamDisplay((prev) => prev.filter((x) => x !== itemToRemove));
-    // };
+    const deleteByIndex = (indexToRemove: number) => {
+        setTeamDisplay((prev) => prev.filter((_, index) => index !== indexToRemove));
+    };
 
     return (
         <div>
@@ -32,31 +28,30 @@ export default function CharacterSelect() {
                 {dofusClasses.map((item, index) => (
                     <button
                         key={index}
-                        // onMouseEnter={() => hoverButton(item.dpsRating)} // x
-                        onClick={() => handleClick(item)}
+                        // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
+                        onClick={() => handleSelection(item)}
                     >
-                        {item.className}
+                        {item.className} {/*Iop, Cra etc.*/}
                     </button>
                 ))}
             </div>
-            <button
-                onClick={() => addToTeamDisplay()}
+            <button onClick={() => addToTeamDisplay()}
             >
                 Add to Team Display
             </button>
+
             <div>{teamDisplay.map((item, index) => (
                 <div>
-                    <p key={index}>{item}</p>
-                    <button
-                        onClick={() =>
-                            // setTeamDisplay(teamDisplay.slice(index))
-                            setTeamDisplay(teamDisplay.filter((x) => x !== item)) // removal via index is ideal
-                        }
-                    >Delete
-                    </button> {/*logic for delete button*/}
+                    <p key={index}>{item}</p> {/*appended class*/}
+                    <button onClick={() => deleteByIndex(index)}
+                    >
+                        Delete
+                    </button>
                 </div>
             ))}
             </div>
         </div>
     )
 }
+
+// NEXT: Make new component to display the collection of qualities/attributes afforded by the current team composition
