@@ -18,7 +18,9 @@ export default function StatDisplay() {
             <h3>Mobility Rating: {selectedCharacter?.mobilityRating}</h3>
             <h3>Qualities/Utility:</h3>
             <ul>
-                {selectedCharacter?.qualities.map((item) => (<li>{item}</li>))}
+                {selectedCharacter?.qualities.map((item, index) => (
+                    <li key={index}>{item}</li>))
+                }
             </ul>
         </div>
     )

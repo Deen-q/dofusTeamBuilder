@@ -11,8 +11,8 @@ export default function CharacterSelect() {
     //     console.log(x);
     // }
 
-    const handleClick = (y: CharacterBase) => { // to be -> `character: CharacterBase`
-        setSelectedCharacter?.(y)
+    const handleClick = (character: CharacterBase) => { // to be -> `character: CharacterBase`
+        setSelectedCharacter?.(character)
     }
 
     const addToTeamDisplay = () => {
@@ -20,6 +20,10 @@ export default function CharacterSelect() {
             setTeamDisplay((prev) => [...prev, selectedCharacter.className])
         }
     }
+
+    // const removeFromTeamDisplay = (itemToRemove: string) => {
+    //     setTeamDisplay((prev) => prev.filter((x) => x !== itemToRemove));
+    // };
 
     return (
         <div>
@@ -40,18 +44,19 @@ export default function CharacterSelect() {
             >
                 Add to Team Display
             </button>
-            <div>{teamDisplay.map((className, index) => (
+            <div>{teamDisplay.map((item, index) => (
                 <div>
-                    <p key={index}>{className}</p>
-                    <button>X</button> {/*logic for delete button*/}
+                    <p key={index}>{item}</p>
+                    <button
+                        onClick={() =>
+                            // setTeamDisplay(teamDisplay.slice(index))
+                            setTeamDisplay(teamDisplay.filter((x) => x !== item)) // removal via index is ideal
+                        }
+                    >Delete
+                    </button> {/*logic for delete button*/}
                 </div>
             ))}
             </div>
         </div>
     )
 }
-
-/*
-- why does L26 not work anymore (something about item being the entire object)
-- create useContext practice file, with increasing lvls of difficulty (sep repo?)
-*/
