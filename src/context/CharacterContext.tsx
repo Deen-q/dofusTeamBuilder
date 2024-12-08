@@ -1,20 +1,20 @@
 /* Dofus Team Builder c: */
 import { createContext, ReactNode, useState } from "react";
-import dofusClasses, { CharacterBase } from "../data/dofusClasses";
+import { CharacterBase } from "../data/dofusClasses";
 
 interface CharacterContextType {
-    characterSelected: CharacterBase | null;
-    setCharacterSelected: (dofusClass: CharacterBase) => void; // no value expected
+    selectedCharacter: CharacterBase | null;
+    setSelectedCharacter: (dofusClass: CharacterBase) => void; // no value expected
 }
 
 const CharacterContext = createContext<CharacterContextType | null>(null);
 // null before Provider has set up -> graceful fail (fallback)
 
 export const CharacterProvider = ({ children }: { children: ReactNode }) => {
-    const [characterSelected, setCharacterSelected] = useState<CharacterBase | null>(null);
+    const [selectedCharacter, setSelectedCharacter] = useState<CharacterBase | null>(null);
 
     return (
-        <CharacterContext.Provider value={{ characterSelected, setCharacterSelected }}>
+        <CharacterContext.Provider value={{ selectedCharacter, setSelectedCharacter }}>
             {children}
         </CharacterContext.Provider>
     )

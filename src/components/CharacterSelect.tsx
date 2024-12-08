@@ -4,18 +4,22 @@ import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import CharacterContext from "../context/CharacterContext";
 
 export default function CharacterSelect() {
-    const { characterSelected, setCharacterSelected } = useContext(CharacterContext) || {};
-    // const [teamDisplay, setTeamDisplay] = useState([]);
+    const { selectedCharacter, setSelectedCharacter } = useContext(CharacterContext) || {};
+    const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
 
     // const hoverButton = (x: number) => { // to be -> `character: CharacterBase`
     //     console.log(x);
     // }
 
     const handleClick = (y: CharacterBase) => { // to be -> `character: CharacterBase`
-        setCharacterSelected?.(y)
+        setSelectedCharacter?.(y)
     }
 
-    // const teamDisplay: string[] = [];
+    const addToTeamDisplay = () => {
+        if (selectedCharacter?.className) {
+            setTeamDisplay((prev) => [...prev, selectedCharacter.className])
+        }
+    }
 
     return (
         <div>
@@ -32,11 +36,17 @@ export default function CharacterSelect() {
                 ))}
             </div>
             <button
-            // onClick={() => teamDisplay.push(characterSelected?.className)}
+                onClick={() => addToTeamDisplay()}
             >
                 Add to Team Display
             </button>
-            {/* {teamDisplay} */}
+            <div>{teamDisplay.map((className, index) => (
+                <div>
+                    <p key={index}>{className}</p>
+                    <button>X</button> {/*logic for delete button*/}
+                </div>
+            ))}
+            </div>
         </div>
     )
 }
