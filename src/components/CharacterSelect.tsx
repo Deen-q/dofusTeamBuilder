@@ -1,19 +1,21 @@
 /* Dofus Team Builder c: */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import CharacterContext from "../context/CharacterContext";
 
 export default function CharacterSelect() {
-    // const [characterSelected, setCharacterSelected] = useState(Number());
-    const { setCharacterSelected } = useContext(CharacterContext) || {};
+    const { characterSelected, setCharacterSelected } = useContext(CharacterContext) || {};
+    // const [teamDisplay, setTeamDisplay] = useState([]);
 
-    const hoverButton = (x: number) => { // to be -> `character: CharacterBase`
-        console.log(x);
-    }
+    // const hoverButton = (x: number) => { // to be -> `character: CharacterBase`
+    //     console.log(x);
+    // }
 
     const handleClick = (y: CharacterBase) => { // to be -> `character: CharacterBase`
         setCharacterSelected?.(y)
     }
+
+    // const teamDisplay: string[] = [];
 
     return (
         <div>
@@ -22,16 +24,19 @@ export default function CharacterSelect() {
                 {dofusClasses.map((item, index) => (
                     <button
                         key={index}
-                        onMouseEnter={() => hoverButton(item.dpsRating)} // x
-                        // onClick={() => handleClick(item.mobilityRating)} // y
+                        // onMouseEnter={() => hoverButton(item.dpsRating)} // x
                         onClick={() => handleClick(item)}
                     >
                         {item.className}
-                        {index}
                     </button>
                 ))}
             </div>
-            {/* <div>Character's Mobility Score: {item.characterSelected}</div> */}
+            <button
+            // onClick={() => teamDisplay.push(characterSelected?.className)}
+            >
+                Add to Team Display
+            </button>
+            {/* {teamDisplay} */}
         </div>
     )
 }

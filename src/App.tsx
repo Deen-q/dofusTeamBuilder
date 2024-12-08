@@ -1,5 +1,5 @@
 /* Dofus Team Builder c: */
-import CharacterDisplay from './components/CharacterDisplay';
+import CharacterDisplay from './components/StatDisplay';
 import CharacterSelect from './components/CharacterSelect';
 import { CharacterProvider } from './context/CharacterContext';
 
