@@ -1,6 +1,5 @@
 /* Dofus Team Builder c: */
 import { useContext } from "react";
-import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 
 export default function TeamPreview() {

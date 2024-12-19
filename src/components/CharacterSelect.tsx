@@ -7,8 +7,8 @@ export default function CharacterSelect() {
     const context = useContext(SiteContext);
 
     if (!context) {
-        return <div> Error: SiteContext is not available.</div>
-    }
+        return <div> Error: SiteContext (CharacterSelect) is not available.</div>
+    };
 
     const {
         selectedCharacter,
@@ -19,7 +19,7 @@ export default function CharacterSelect() {
 
     const handleSelection = (character: CharacterBase) => {
         setSelectedCharacter?.(character)
-    }
+    };
 
     const addToTeamDisplay = () => {
         if (!selectedCharacter?.className) {
@@ -29,10 +29,6 @@ export default function CharacterSelect() {
         } else {
             alert("Max of 4. Duplicate classes are acceptable.")
         }
-    }
-
-    const deleteByIndex = (indexToRemove: number) => {
-        setTeamDisplay((prev) => prev.filter((_, index) => index !== indexToRemove));
     };
 
     const resetTeamPreview = () => {
@@ -62,20 +58,9 @@ export default function CharacterSelect() {
             >
                 Reset
             </button>
-
-            <div>
-                {teamDisplay.map((item, index) => (
-                    <div>
-                        <p key={index}>{item}</p> {/*appended class*/}
-                        <button onClick={() => deleteByIndex(index)}
-                        >
-                            Delete
-                        </button>
-                    </div>
-                ))}
-            </div>
         </div>
     )
 }
 
 // NEXT: Make new component to display the collection of qualities/attributes afforded by the current team composition
+// WHENEVER: Update className to dofusClass - className is obvious defined by React/JS/TS, will cause confusion.
