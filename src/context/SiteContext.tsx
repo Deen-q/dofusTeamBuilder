@@ -4,7 +4,7 @@ import { CharacterBase } from "../data/dofusClasses";
 
 interface SiteContextType {
     selectedCharacter: CharacterBase | null;
-    setSelectedCharacter: (dofusClass: CharacterBase) => void; // no value expected
+    setSelectedCharacter: (dofusClass: CharacterBase | null) => void; // no value expected
     teamDisplay: string[];
     setTeamDisplay: React.Dispatch<React.SetStateAction<string[]>>;
 }

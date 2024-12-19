@@ -4,17 +4,10 @@ import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 
 export default function CharacterSelect() {
-    // const {
-    //     selectedCharacter, // doesnt want to be defined here for some reason
-    //     setSelectedCharacter = () => { },
-    //     teamDisplay = [],
-    //     setTeamDisplay = () => { }
-    // } = useContext(SiteContext) || {};
-
-    const context = useContext(SiteContext); // defined differently, vs above, for error handling
+    const context = useContext(SiteContext);
 
     if (!context) {
-        return <div> Error: SiteContex is not available.</div>
+        return <div> Error: SiteContext is not available.</div>
     }
 
     const {
@@ -24,21 +17,28 @@ export default function CharacterSelect() {
         setTeamDisplay = () => { }
     } = context;
 
-    // const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
-
-    const handleSelection = (character: CharacterBase) => { // to be -> `character: CharacterBase`
+    const handleSelection = (character: CharacterBase) => {
         setSelectedCharacter?.(character)
     }
 
     const addToTeamDisplay = () => {
-        if (selectedCharacter?.className) {
+        if (!selectedCharacter?.className) {
+            alert("Please select a character.");
+        } else if (teamDisplay.length < 4) {
             setTeamDisplay((prev) => [...prev, selectedCharacter.className])
+        } else {
+            alert("Max of 4. Duplicate classes are acceptable.")
         }
     }
 
     const deleteByIndex = (indexToRemove: number) => {
         setTeamDisplay((prev) => prev.filter((_, index) => index !== indexToRemove));
     };
+
+    const resetTeamPreview = () => {
+        setSelectedCharacter(null);
+        setTeamDisplay([]);
+    }
 
     return (
         <div>
@@ -57,6 +57,10 @@ export default function CharacterSelect() {
             <button onClick={() => addToTeamDisplay()}
             >
                 Add to Team Display
+            </button>
+            <button onClick={() => resetTeamPreview()}
+            >
+                Reset
             </button>
 
             <div>{teamDisplay.map((item, index) => (
