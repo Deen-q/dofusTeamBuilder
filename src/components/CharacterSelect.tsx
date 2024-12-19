@@ -70,6 +70,3 @@ export default function CharacterSelect() {
         </div>
     )
 }
-
-// NEXT: Make new component to display the collection of qualities/attributes afforded by the current team composition
-// WHENEVER: Update className to dofusClass - className is obvious defined by React/JS/TS, will cause confusion.

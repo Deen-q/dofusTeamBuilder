@@ -18,3 +18,9 @@ export default function App() {
     </>
   );
 }
+
+// NEXT: Add the rest of the classes
+// WHENEVER: Update className to dofusClass - className is obvious defined by React/JS/TS, will cause confusion.
+// OPTIMISE: useCallback and useMemo where necessary
+// CSS and styling: see notes.md
+// 
