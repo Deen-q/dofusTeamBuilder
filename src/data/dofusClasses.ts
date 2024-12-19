@@ -5,7 +5,8 @@ export interface CharacterBase {
 	healingRating: number; // 1-10
 	effectiveRange: Array<string>;
 	mobilityRating: number;
-	qualities: (string | [string, string])[];
+	// qualities: (string | [string, string])[];
+	qualities: string[];
 }
 
 const dofusClasses: CharacterBase[] = [
@@ -17,9 +18,9 @@ const dofusClasses: CharacterBase[] = [
 		mobilityRating: 8,
 		qualities: [
 			"erosion",
-			["apReduction", " (Precipitate usage)"],
+			"apReduction",
 			"mpReduction",
-			["buffAp", " (Precipitate usage)"],
+			"buffAp",
 			"buffMp",
 			"buffLinearDamage",
 			"buffPower",
@@ -55,7 +56,7 @@ const dofusClasses: CharacterBase[] = [
 			"-effectDuraton",
 			"canPacifist",
 			"applyUnlockable",
-			["applyLifesteal", " (Mine Fire, similar to Prey)"],
+			"applyLifesteal"
 		],
 	},
 	{
@@ -81,7 +82,7 @@ const dofusClasses: CharacterBase[] = [
 			"pushBack",
 			"-effectDuraton",
 			"canUnhealable",
-			["applyLifesteal", " (Bloodless Word, similar to Prey)"],
+			"applyLifesteal",
 			"lifesteal",
 		],
 	},
@@ -99,7 +100,7 @@ const dofusClasses: CharacterBase[] = [
 			"buffPower",
 			"buffPercentDamage",
 			"healer",
-			["canTeleport", " (Exodus)"],
+			"canTeleport",
 			"pushBack",
 			"applyVulnerability",
 			"-effectDuraton",
@@ -115,13 +116,13 @@ const dofusClasses: CharacterBase[] = [
 		qualities: [
 			"mpReduction",
 			"powerReduction",
-			["buffAp", " (Self only)"],
+			"buffAp",
 			"buffMp",
-			["buffPower", " (Self only)"],
-			["buffShieldPoints", " (Self only)"],
+			"buffPower",
+			"buffShieldPoints",
 			"summoner",
 			"healer",
-			["canTeleport", " (Eviction)"],
+			"canTeleport",
 			"canSwap",
 			"canAdvanceCells",
 			"pushBack",

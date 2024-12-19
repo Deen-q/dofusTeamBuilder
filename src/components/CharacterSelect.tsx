@@ -14,7 +14,9 @@ export default function CharacterSelect() {
         selectedCharacter,
         setSelectedCharacter = () => { },
         teamDisplay = [],
-        setTeamDisplay = () => { }
+        setTeamDisplay = () => { },
+        setTeamQualities = () => { },
+        // teamQualities // used for log
     } = context;
 
     const handleSelection = (character: CharacterBase) => {
@@ -25,7 +27,13 @@ export default function CharacterSelect() {
         if (!selectedCharacter?.className) {
             alert("Please select a character.");
         } else if (teamDisplay.length < 4) {
-            setTeamDisplay((prev) => [...prev, selectedCharacter.className])
+            setTeamDisplay((prev) => [...prev, selectedCharacter.className]);
+            // setTeamQualities((prev) => [...prev, ...selectedCharacter.qualities]);
+            setTeamQualities((prev) => [
+                ...(prev ?? []),
+                ...selectedCharacter.qualities,
+            ])
+            // console.log(">>>", teamQualities)
         } else {
             alert("Max of 4. Duplicate classes are acceptable.")
         }
@@ -34,11 +42,12 @@ export default function CharacterSelect() {
     const resetTeamPreview = () => {
         setSelectedCharacter(null);
         setTeamDisplay([]);
+        setTeamQualities([]);
     }
 
     return (
         <div>
-            This is CharacterSelect!
+            <h2>Character Select</h2>
             <div>
                 {dofusClasses.map((item, index) => (
                     <button
