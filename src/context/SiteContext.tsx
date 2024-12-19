@@ -28,5 +28,4 @@ export const SiteProvider = ({ children }: { children: ReactNode }) => {
     )
 }
 
-// export default CharacterContext;
 export default SiteContext;

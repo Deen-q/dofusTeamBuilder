@@ -5,7 +5,6 @@ export interface CharacterBase {
 	healingRating: number; // 1-10
 	effectiveRange: Array<string>;
 	mobilityRating: number;
-	// qualtities: string[];
 	qualities: (string | [string, string])[];
 }
 

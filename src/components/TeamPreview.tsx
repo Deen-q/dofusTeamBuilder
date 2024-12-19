@@ -6,7 +6,7 @@ export default function TeamPreview() {
     const context = useContext(SiteContext);
 
     if (!context) {
-        return <div> Error: SiteContext is not available.</div>
+        return <div> Error: SiteContext (TeamPreview) is not available.</div>
     }
 
     const {

@@ -6,10 +6,13 @@ import TeamPreview from './components/TeamPreview';
 
 export default function App() {
   return (
-    <SiteProvider> {/* From CharacterContext */}
-      <CharacterSelect />
-      <CharacterDisplay />
-      <TeamPreview />
-    </SiteProvider>
+    <>
+      <h1>DofusTeamBuilder</h1>
+      <SiteProvider>
+        <CharacterSelect />
+        <CharacterDisplay />
+        <TeamPreview />
+      </SiteProvider>
+    </>
   );
 }
