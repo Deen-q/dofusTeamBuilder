@@ -1,10 +1,10 @@
 /* Dofus Team Builder c: */
 import { useContext, useState } from "react";
 import dofusClasses, { CharacterBase } from "../data/dofusClasses";
-import CharacterContext from "../context/CharacterContext";
+import SiteContext from "../context/SiteContext";
 
 export default function CharacterSelect() {
-    const { selectedCharacter, setSelectedCharacter } = useContext(CharacterContext) || {};
+    const { selectedCharacter, setSelectedCharacter } = useContext(SiteContext) || {};
     const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
 
     const handleSelection = (character: CharacterBase) => { // to be -> `character: CharacterBase`

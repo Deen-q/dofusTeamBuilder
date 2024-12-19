@@ -1,9 +1,9 @@
 /* Dofus Team Builder c: */
 import { useContext } from "react"
-import CharacterContext from "../context/CharacterContext"
+import SiteContext from "../context/SiteContext"
 
 export default function StatDisplay() {
-    const { selectedCharacter } = useContext(CharacterContext) || {};
+    const { selectedCharacter } = useContext(SiteContext) || {};
 
     return (
         <div>

@@ -1,13 +1,13 @@
 /* Dofus Team Builder c: */
 import CharacterDisplay from './components/StatDisplay';
 import CharacterSelect from './components/CharacterSelect';
-import { CharacterProvider } from './context/CharacterContext';
+import { SiteProvider } from './context/SiteContext';
 
 export default function App() {
   return (
-    <CharacterProvider> {/* From CharacterContext */}
+    <SiteProvider> {/* From CharacterContext */}
       <CharacterSelect />
       <CharacterDisplay />
-    </CharacterProvider>
+    </SiteProvider>
   );
 }

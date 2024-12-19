@@ -7,17 +7,18 @@ interface CharacterContextType {
     setSelectedCharacter: (dofusClass: CharacterBase) => void; // no value expected
 }
 
-const CharacterContext = createContext<CharacterContextType | null>(null);
+const SiteContext = createContext<CharacterContextType | null>(null);
 // null before Provider has set up -> graceful fail (fallback)
 
-export const CharacterProvider = ({ children }: { children: ReactNode }) => {
+export const SiteProvider = ({ children }: { children: ReactNode }) => {
     const [selectedCharacter, setSelectedCharacter] = useState<CharacterBase | null>(null);
 
     return (
-        <CharacterContext.Provider value={{ selectedCharacter, setSelectedCharacter }}>
+        <SiteContext.Provider value={{ selectedCharacter, setSelectedCharacter }}>
             {children}
-        </CharacterContext.Provider>
+        </SiteContext.Provider>
     )
 }
 
-export default CharacterContext;
+// export default SiteContext;
+export default SiteContext;
