@@ -2,23 +2,31 @@
 import { createContext, ReactNode, useState } from "react";
 import { CharacterBase } from "../data/dofusClasses";
 
-interface CharacterContextType {
+interface SiteContextType {
     selectedCharacter: CharacterBase | null;
     setSelectedCharacter: (dofusClass: CharacterBase) => void; // no value expected
+    teamDisplay: string[];
+    setTeamDisplay: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const SiteContext = createContext<CharacterContextType | null>(null);
+const SiteContext = createContext<SiteContextType | null>(null);
 // null before Provider has set up -> graceful fail (fallback)
 
 export const SiteProvider = ({ children }: { children: ReactNode }) => {
     const [selectedCharacter, setSelectedCharacter] = useState<CharacterBase | null>(null);
+    const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
 
     return (
-        <SiteContext.Provider value={{ selectedCharacter, setSelectedCharacter }}>
+        <SiteContext.Provider value={{
+            selectedCharacter,
+            setSelectedCharacter,
+            teamDisplay,
+            setTeamDisplay
+        }}>
             {children}
         </SiteContext.Provider>
     )
 }
 
-// export default SiteContext;
+// export default CharacterContext;
 export default SiteContext;

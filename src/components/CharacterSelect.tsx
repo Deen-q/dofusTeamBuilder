@@ -1,11 +1,30 @@
 /* Dofus Team Builder c: */
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 
 export default function CharacterSelect() {
-    const { selectedCharacter, setSelectedCharacter } = useContext(SiteContext) || {};
-    const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
+    // const {
+    //     selectedCharacter, // doesnt want to be defined here for some reason
+    //     setSelectedCharacter = () => { },
+    //     teamDisplay = [],
+    //     setTeamDisplay = () => { }
+    // } = useContext(SiteContext) || {};
+
+    const context = useContext(SiteContext); // defined differently, vs above, for error handling
+
+    if (!context) {
+        return <div> Error: SiteContex is not available.</div>
+    }
+
+    const {
+        selectedCharacter,
+        setSelectedCharacter = () => { },
+        teamDisplay = [],
+        setTeamDisplay = () => { }
+    } = context;
+
+    // const [teamDisplay, setTeamDisplay] = useState<string[]>([]);
 
     const handleSelection = (character: CharacterBase) => { // to be -> `character: CharacterBase`
         setSelectedCharacter?.(character)
