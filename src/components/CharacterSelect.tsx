@@ -63,15 +63,16 @@ export default function CharacterSelect() {
                 Reset
             </button>
 
-            <div>{teamDisplay.map((item, index) => (
-                <div>
-                    <p key={index}>{item}</p> {/*appended class*/}
-                    <button onClick={() => deleteByIndex(index)}
-                    >
-                        Delete
-                    </button>
-                </div>
-            ))}
+            <div>
+                {teamDisplay.map((item, index) => (
+                    <div>
+                        <p key={index}>{item}</p> {/*appended class*/}
+                        <button onClick={() => deleteByIndex(index)}
+                        >
+                            Delete
+                        </button>
+                    </div>
+                ))}
             </div>
         </div>
     )
