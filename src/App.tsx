@@ -2,7 +2,7 @@
 import CharacterDisplay from './components/StatDisplay';
 import CharacterSelect from './components/CharacterSelect';
 import { SiteProvider } from './context/SiteContext';
-import TeamPreview from './components/TeamPreview';
+// import TeamPreview from './components/TeamPreview';
 import QualitiesPreview from './components/QualitiesPreview';
 import './index.css';
 

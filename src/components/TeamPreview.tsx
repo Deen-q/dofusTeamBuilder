@@ -11,7 +11,7 @@ export default function TeamPreview() {
 
     const {
         teamDisplay = [],
-        setTeamDisplay = () => { }
+        setTeamDisplay = () => {}
     } = context;
 
     const deleteByIndex = (indexToRemove: number) => {
@@ -25,7 +25,7 @@ export default function TeamPreview() {
                     key={index} 
                     className="flex items-center justify-between mb-2">
                         <p className="text-2xl">{item}</p>
-                        <button className="btn h-10" onClick={() => deleteByIndex(index)}
+                        <button className="btn-delete h-10" onClick={() => deleteByIndex(index)}
                     >
                         Delete
                     </button>

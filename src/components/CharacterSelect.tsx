@@ -13,7 +13,7 @@ export default function CharacterSelect() {
 
     const {
         selectedCharacter,
-        setSelectedCharacter = () => { },
+        setSelectedCharacter = () => {},
         teamDisplay = [],
         setTeamDisplay = () => { },
         setTeamQualities = () => { },
@@ -50,11 +50,11 @@ export default function CharacterSelect() {
     return (
         <div>
             <h2 className="text-2xl">Character Select</h2>
-            <div className="flex justify-between gap-4"> {/*flex for preview + buttons to be side by side*/}
+            <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
             <div className="w-1/2">
                 {dofusClasses.map((item, index) => (
                     <button
-                        className="btn h-12"
+                        className="btn h-12 m-1"
                         key={index}
                         // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
                         onClick={() => handleSelection(item)}
@@ -68,12 +68,12 @@ export default function CharacterSelect() {
                 </div>
             </div>
 
-            <div>
-                <button className="btn" onClick={() => addToTeamDisplay()}
+            <div> {/* make add button stop jumping when adding the 4th character */}
+                <button className="btn-add m-1" onClick={() => addToTeamDisplay()}
                 >
                     Add to Team Display
                 </button>
-                <button className="btn" onClick={() => resetTeamPreview()}
+                <button className="btn-reset m-1" onClick={() => resetTeamPreview()}
                 >
                     Reset
                 </button>
