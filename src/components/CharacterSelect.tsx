@@ -46,10 +46,12 @@ export default function CharacterSelect() {
         setTeamQualities([]);
     }
 
+    // className="flex w-1/2 gap-2 h-24"
     return (
-        <div >
+        <div>
             <h2 className="text-2xl">Character Select</h2>
-            <div className="h-24 flex grid-cols-* gap-2">
+            <div className="flex justify-between gap-4"> {/*flex for preview + buttons to be side by side*/}
+            <div className="w-1/2">
                 {dofusClasses.map((item, index) => (
                     <button
                         className="btn h-12"
@@ -60,7 +62,8 @@ export default function CharacterSelect() {
                         {item.className} {/*Iop, Cra etc.*/}
                     </button>
                 ))}
-                <div >
+                </div>
+                <div className="w-1/2"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
                     <TeamPreview />
                 </div>
             </div>
