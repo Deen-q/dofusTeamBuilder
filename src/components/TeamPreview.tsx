@@ -19,7 +19,7 @@ export default function TeamPreview() {
     };
 
     return (
-        <div>
+        <div className="flex flex-row bg-slate-400">
             {teamDisplay.map((item, index) => (
                 <div>
                     <p className='text-2xl' key={index}>{item}</p> {/*appended class*/}

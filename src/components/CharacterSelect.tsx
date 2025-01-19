@@ -46,8 +46,8 @@ export default function CharacterSelect() {
     }
 
     return (
-        <div>
-            <h2 className='text-2xl'>Character Select</h2>
+        <div className="flex flex-row">
+            <h2 className="text-2xl">Character Select</h2>
             <div>
                 {dofusClasses.map((item, index) => (
                     <button

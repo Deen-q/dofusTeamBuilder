@@ -8,15 +8,15 @@ import './index.css';
 
 export default function App() {
   return (
-    <>
+    <div className='basicFormatting'>
       <h1 className='text-3xl'>DofusTeamBuilder</h1>
       <SiteProvider>
         <CharacterSelect />
-        <CharacterDisplay />
         <TeamPreview />
+        <CharacterDisplay />
         <QualitiesPreview />
       </SiteProvider>
-    </>
+    </div>
   );
 }
 

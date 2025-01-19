@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.basicFormatting {
+    @apply 
+    bg-amber-100 
+    min-h-screen
+    /* bg-blue-500 */
+    /* container mx-auto  */
+    p-4
+    /* min-h-screen 
+    flex 
+    items-center 
+    justify-center */
+}
+
 .btn {
     @apply 
     px-4 py-2 
