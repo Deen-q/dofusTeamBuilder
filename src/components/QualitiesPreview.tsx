@@ -20,7 +20,7 @@ export default function QualitiesPreview() {
 
     return (
         <>
-            <h2>Combined Team Qualities</h2>
+            <h2 className='text-2xl'>Combined Team Qualities</h2>
             <ul>
                 {selectedCharacter && Array.from(noDupesList).map((quality, index) =>
                     // [noDupesList].map did not work - I guess Array.from converts to an arr 'earlier'?

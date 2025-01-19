@@ -4,11 +4,12 @@ import CharacterSelect from './components/CharacterSelect';
 import { SiteProvider } from './context/SiteContext';
 import TeamPreview from './components/TeamPreview';
 import QualitiesPreview from './components/QualitiesPreview';
+import './index.css';
 
 export default function App() {
   return (
     <>
-      <h1>DofusTeamBuilder</h1>
+      <h1 className='text-3xl'>DofusTeamBuilder</h1>
       <SiteProvider>
         <CharacterSelect />
         <CharacterDisplay />

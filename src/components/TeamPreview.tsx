@@ -22,8 +22,8 @@ export default function TeamPreview() {
         <div>
             {teamDisplay.map((item, index) => (
                 <div>
-                    <p key={index}>{item}</p> {/*appended class*/}
-                    <button onClick={() => deleteByIndex(index)}
+                    <p className='text-2xl' key={index}>{item}</p> {/*appended class*/}
+                    <button className='btn' onClick={() => deleteByIndex(index)}
                     >
                         Delete
                     </button>

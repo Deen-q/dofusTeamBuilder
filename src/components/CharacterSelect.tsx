@@ -47,10 +47,11 @@ export default function CharacterSelect() {
 
     return (
         <div>
-            <h2>Character Select</h2>
+            <h2 className='text-2xl'>Character Select</h2>
             <div>
                 {dofusClasses.map((item, index) => (
                     <button
+                        className="btn"
                         key={index}
                         // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
                         onClick={() => handleSelection(item)}
@@ -59,11 +60,11 @@ export default function CharacterSelect() {
                     </button>
                 ))}
             </div>
-            <button onClick={() => addToTeamDisplay()}
+            <button className="btn" onClick={() => addToTeamDisplay()}
             >
                 Add to Team Display
             </button>
-            <button onClick={() => resetTeamPreview()}
+            <button className="btn" onClick={() => resetTeamPreview()}
             >
                 Reset
             </button>

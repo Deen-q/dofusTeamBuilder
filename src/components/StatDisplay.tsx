@@ -15,16 +15,16 @@ export default function StatDisplay() {
 
     return (
         <div>
-            <h2>Stat Display</h2>
+            <h2 className='text-2xl'>Stat Display</h2>
             {selectedCharacter ?
                 <h3>{selectedCharacter?.className}</h3> : <h3>Please select a class.</h3>
             }
-            <h4>DPS Rating: {selectedCharacter?.dpsRating}</h4>
-            <h4>Healing Rating: {selectedCharacter?.healingRating}</h4>
+            <h4 className='text-2xl'>DPS Rating: {selectedCharacter?.dpsRating}</h4>
+            <h4 className='text-2xl'>Healing Rating: {selectedCharacter?.healingRating}</h4>
             {/* Likely need a Shield Point rating */}
-            <h4>Effective Range(s): {selectedCharacter?.effectiveRange.join(", ")}</h4>
-            <h4>Mobility Rating: {selectedCharacter?.mobilityRating}</h4>
-            <h4>Qualities/Utility:</h4>
+            <h4 className='text-2xl'>Effective Range(s): {selectedCharacter?.effectiveRange.join(", ")}</h4>
+            <h4 className='text-2xl'>Mobility Rating: {selectedCharacter?.mobilityRating}</h4>
+            <h4 className='text-2xl'>Qualities/Utility:</h4>
             <ul>
                 {selectedCharacter?.qualities.map((item, index) => (
                     <li key={index}>{item}</li>))
