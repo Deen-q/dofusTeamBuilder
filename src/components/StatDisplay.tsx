@@ -25,11 +25,13 @@ export default function StatDisplay() {
             <h4 className='text-2xl'>Effective Range(s): {selectedCharacter?.effectiveRange.join(", ")}</h4>
             <h4 className='text-2xl'>Mobility Rating: {selectedCharacter?.mobilityRating}</h4>
             <h4 className='text-2xl'>Qualities/Utility:</h4>
-            <ul>
-                {selectedCharacter?.qualities.map((item, index) => (
-                    <li key={index}>{item}</li>))
-                }
-            </ul>
+            <div>
+                <ul className="scroll">
+                    {selectedCharacter?.qualities.map((item, index) => (
+                        <li key={index}>{item}</li>))
+                    }
+                </ul>
+            </div>
         </div>
     )
 }

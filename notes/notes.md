@@ -9,3 +9,8 @@
 ## Provider
 i.e., CharacterContext.tsx --> CharacterProvider
 1) CharacterContext is created (createContext), followed by exporting the Provider (CharacterProvider) which will be used to wrap other components within App.tsx.
+
+
+## Design Notes
+1) Need to go back. Stat display, for selected char, should be on the right
+2) Combined stats and TeamPreview should be below?

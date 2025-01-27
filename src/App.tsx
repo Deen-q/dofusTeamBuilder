@@ -2,9 +2,10 @@
 import CharacterDisplay from './components/StatDisplay';
 import CharacterSelect from './components/CharacterSelect';
 import { SiteProvider } from './context/SiteContext';
-// import TeamPreview from './components/TeamPreview';
+import TeamPreview from './components/TeamPreview';
 import QualitiesPreview from './components/QualitiesPreview';
 import './index.css';
+import AddAndReset from './components/AddAndReset';
 
 export default function App() {
   return (
@@ -12,8 +13,9 @@ export default function App() {
       <h1 className='text-3xl'>DofusTeamBuilder</h1>
       <SiteProvider>
         <CharacterSelect />
-        {/* <TeamPreview /> */}
-        <CharacterDisplay />
+        <AddAndReset />
+        <TeamPreview />
+        {/* <CharacterDisplay /> */}
         <QualitiesPreview />
       </SiteProvider>
     </div>
