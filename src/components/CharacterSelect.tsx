@@ -23,15 +23,16 @@ export default function CharacterSelect() {
         <div>
             <h2 className="text-2xl">Character Select</h2>
             <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
-                <div className="w-1/2">
-                    {dofusClasses.map((item, index) => (
+                {/* Character Select buttons */}
+                <div className="w-1/2 space-y-8">
+                    {dofusClasses.map((characterButton, index) => (
                         <button
                             className="btn h-12 m-1"
                             key={index}
                             // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
-                            onClick={() => handleSelection(item)}
+                            onClick={() => handleSelection(characterButton)}
                         >
-                            {item.className} {/*Iop, Cra etc.*/}
+                            {characterButton.className} {/*Iop, Cra etc.*/}
                         </button>
                     ))}
                 </div>

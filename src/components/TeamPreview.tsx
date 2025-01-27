@@ -1,6 +1,7 @@
 /* Dofus Team Builder c: */
 import { useContext } from "react";
 import SiteContext from "../context/SiteContext";
+import QualitiesPreview from "./QualitiesPreview";
 
 export default function TeamPreview() {
     const context = useContext(SiteContext);
@@ -19,18 +20,27 @@ export default function TeamPreview() {
     };
 
     return (
-        <div className="bg-slate-400 w-1/2">
-            {teamDisplay.map((item, index) => (
-                <div
-                    key={index}
-                    className="flex items-center justify-between mb-2">
-                    <p className="text-2xl">{item}</p>
-                    <button className="btn-delete h-10" onClick={() => deleteByIndex(index)}
-                    >
-                        Delete
-                    </button>
+        <div>
+            <h2 className="text-2xl">Team Preview</h2>
+            <div className="flex justify-between">
+                <div className="bg-slate-400 w-1/2">
+                    {teamDisplay.map((chosenCharacter, index) => (
+                        <div
+                            key={index}
+                            className="flex items-center justify-between mb-2">
+                            <p className="text-2xl">
+                                {chosenCharacter}
+                            </p>
+                            <button className="btn-delete h-10" onClick={() => deleteByIndex(index)}>
+                                Delete
+                            </button>
+                        </div>
+                    ))}
                 </div>
-            ))}
+                <div className="w-1/2">
+                    <QualitiesPreview />
+                </div>
+            </div>
         </div>
     )
 }

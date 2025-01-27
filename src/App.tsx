@@ -12,11 +12,11 @@ export default function App() {
     <div className='basicFormatting'>
       <h1 className='text-3xl'>DofusTeamBuilder</h1>
       <SiteProvider>
-        <CharacterSelect />
+        <CharacterSelect /> {/*Houses StatDisplay*/}
         <AddAndReset />
         <TeamPreview />
         {/* <CharacterDisplay /> */}
-        <QualitiesPreview />
+        {/* <QualitiesPreview /> */}
       </SiteProvider>
     </div>
   );

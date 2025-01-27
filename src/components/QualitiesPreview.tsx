@@ -30,3 +30,5 @@ export default function QualitiesPreview() {
         </>
     )
 }
+
+// QualitiesPreview will sit next to TeamPreview

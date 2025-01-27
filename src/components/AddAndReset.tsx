@@ -39,7 +39,7 @@ export default function AddAndReset() {
     }
 
     return (
-        <div className="w-1/2"> {/* make add button stop jumping when adding the 4th character */}
+        <div className="w-1/2 space-y-8"> {/* make add button stop jumping when adding the 4th character */}
             <button className="btn-add m-1" onClick={() => addToTeamDisplay()}
             >
                 Add to Team Display
