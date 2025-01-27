@@ -16,8 +16,9 @@
 }
 
 .scroll {
-    max-height: 120px; 
+    max-height: 150px;
     overflow-y: auto;
+    color: rgb(255, 0, 0);
 }
 
 .btn {

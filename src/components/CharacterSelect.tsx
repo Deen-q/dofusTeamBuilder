@@ -4,8 +4,10 @@ import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 import StatDisplay from "./StatDisplay";
 // import TeamPreview from "./TeamPreview";
+import { useTeamActions } from "../custom_hooks/useTeamActions";
 
 export default function CharacterSelect() {
+    const { addToTeamPreview } = useTeamActions();
     const context = useContext(SiteContext);
     if (!context) {
         return <div> Error: SiteContext (CharacterSelect) is not available.</div>
@@ -31,6 +33,7 @@ export default function CharacterSelect() {
                             key={index}
                             // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
                             onClick={() => handleSelection(characterButton)}
+                            onDoubleClick={addToTeamPreview}
                         >
                             {characterButton.className} {/*Iop, Cra etc.*/}
                         </button>
