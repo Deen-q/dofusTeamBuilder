@@ -14,23 +14,29 @@ export default function StatDisplay() {
     } = context;
 
     return (
-        <div>
-            <h2 className='text-2xl'>Stat Display</h2>
-            {selectedCharacter ?
-                <h3>{selectedCharacter?.className}</h3> : <h3>Please select a class.</h3>
-            }
-            <h4 className='text-2xl'>DPS Rating: {selectedCharacter?.dpsRating}</h4>
-            <h4 className='text-2xl'>Healing Rating: {selectedCharacter?.healingRating}</h4>
-            {/* Likely need a Shield Point rating */}
-            <h4 className='text-2xl'>Effective Range(s): {selectedCharacter?.effectiveRange.join(", ")}</h4>
-            <h4 className='text-2xl'>Mobility Rating: {selectedCharacter?.mobilityRating}</h4>
-            <h4 className='text-2xl'>Qualities/Utility:</h4>
+        <div className="flex justify-between w-1/2">
             <div>
-                <ul className="scroll">
-                    {selectedCharacter?.qualities.map((item, index) => (
-                        <li key={index}>{item}</li>))
-                    }
-                </ul>
+                <h2 className='text-2xl'>Stat Display</h2>
+                {selectedCharacter ?
+                    <h3>{selectedCharacter?.className}</h3> : <h3>Please select a class.</h3>
+                }
+                <h4 className='text-2xl'>DPS Rating: {selectedCharacter?.dpsRating}</h4>
+                <h4 className='text-2xl'>Healing Rating: {selectedCharacter?.healingRating}</h4>
+                {/* Likely need a Shield Point rating */}
+                <h4 className='text-2xl'>Effective Range(s): </h4>
+                <p>{selectedCharacter?.effectiveRange.join(", ")}</p>
+                <h4 className='text-2xl'>Mobility Rating: {selectedCharacter?.mobilityRating}</h4>
+
+                <div>
+                    <h4 className='text-2xl'>Qualities/Utility:</h4>
+                    <div>
+                        <ul className="scroll">
+                            {selectedCharacter?.qualities.map((item, index) => (
+                                <li key={index}>{item}</li>))
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     )
