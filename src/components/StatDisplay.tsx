@@ -14,8 +14,8 @@ export default function StatDisplay() {
     } = context;
 
     return (
-        <div className="flex justify-between w-1/2">
-            <div>
+        <div className="flex justify-between w-full gap-8"> {/* parent flex container */}
+            <div className="w-1/2">
                 <h2 className='text-2xl'>Stat Display</h2>
                 {selectedCharacter ?
                     <h3>{selectedCharacter?.className}</h3> : <h3>Please select a class.</h3>
@@ -26,18 +26,18 @@ export default function StatDisplay() {
                 <h4 className='text-2xl'>Effective Range(s): </h4>
                 <p>{selectedCharacter?.effectiveRange.join(", ")}</p>
                 <h4 className='text-2xl'>Mobility Rating: {selectedCharacter?.mobilityRating}</h4>
+            </div>
 
+            <div className="w-1/2">
+                <h4 className='text-2xl'>Qualities/Utility:</h4>
                 <div>
-                    <h4 className='text-2xl'>Qualities/Utility:</h4>
-                    <div>
-                        <ul className="scroll">
-                            {selectedCharacter?.qualities.map((item, index) => (
-                                <li key={index}>{item}</li>))
-                            }
-                        </ul>
-                    </div>
+                    <ul className="scroll">
+                        {selectedCharacter?.qualities.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>
-    )
+    );
 }
