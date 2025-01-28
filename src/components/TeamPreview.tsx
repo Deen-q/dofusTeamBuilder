@@ -21,13 +21,13 @@ export default function TeamPreview() {
 
     return (
         <div>
-            <h2 className="text-2xl">Team Preview</h2>
-            <div className="flex justify-between">
-                <div className="bg-slate-400 w-1/2">
+            <h2 className="text-2xl w-1/2">Team Preview</h2>
+            <div className="flex w-full gap-8">
+                <div className="w-1/2 self-start p-4">
                     {teamDisplay.map((chosenCharacter, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-between mb-2">
+                            className="flex items-center justify-between p-1">
                             <p className="text-2xl">
                                 {chosenCharacter}
                             </p>
