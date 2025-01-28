@@ -1,7 +1,7 @@
 /* Dofus Team Builder c: */
 import { useContext } from "react";
 import SiteContext from "../context/SiteContext";
-import QualitiesPreview from "./QualitiesPreview";
+import CombinedQualitiesPreview from "./CombinedQualitiesPreview";
 
 export default function TeamPreview() {
     const context = useContext(SiteContext);
@@ -22,7 +22,7 @@ export default function TeamPreview() {
     return (
         <div>
             <h2 className="text-2xl w-1/2">Team Preview</h2>
-            <div className="flex w-full gap-8">
+            <div className="flex w-full">
                 <div className="w-1/2 self-start p-4">
                     {teamDisplay.map((chosenCharacter, index) => (
                         <div
@@ -38,7 +38,7 @@ export default function TeamPreview() {
                     ))}
                 </div>
                 <div className="w-1/2">
-                    <QualitiesPreview />
+                    <CombinedQualitiesPreview />
                 </div>
             </div>
         </div>

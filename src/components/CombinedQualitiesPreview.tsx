@@ -2,11 +2,11 @@
 import { useContext } from "react";
 import SiteContext from "../context/SiteContext";
 
-export default function QualitiesPreview() {
+export default function CombinedQualitiesPreview() {
     const context = useContext(SiteContext);
 
     if (!context) {
-        return <div> Error: SiteContext (QualitiesPreview) is not available.</div>
+        return <div> Error: SiteContext (CombinedQualitiesPreview) is not available.</div>
     }
 
     const {
@@ -19,7 +19,7 @@ export default function QualitiesPreview() {
     // console.log({ noDupesList });
 
     return (
-        <>
+        <div>
             <h2 className='text-2xl'>Combined Team Qualities</h2>
             <ul>
                 {selectedCharacter && Array.from(noDupesList).map((quality, index) =>
@@ -27,8 +27,10 @@ export default function QualitiesPreview() {
                     <li key={index}>{quality}</li>
                 )}
             </ul>
-        </>
+        </div>
     )
 }
 
 // QualitiesPreview will sit next to TeamPreview
+
+// probs rename QualitiesPreview to CombinedQualitiesPreview // done

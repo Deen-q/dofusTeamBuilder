@@ -29,6 +29,7 @@ export default function StatDisplay() {
             </div>
 
             <div className="w-1/2">
+            {/* the REAL 'Qualities Preview' - they show on class click! */}
                 <h4 className='text-2xl'>Qualities/Utility:</h4>
                 <div>
                     <ul className="scroll">
