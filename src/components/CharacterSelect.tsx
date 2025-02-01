@@ -26,10 +26,9 @@ export default function CharacterSelect() {
 
     return (
         <div>
-            <h2 className="text-2xl w-1/2">Character Select</h2>
             <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
-                {/* Character Select buttons */}
-                <div className="w-1/2 ">
+                <div className="w-1/2 p-4">
+                    <h2 className="text-2xl">Character Select</h2>
                     {dofusClasses.map((characterButton, index) => (
                         <button
                             className="btn h-12 m-1"
@@ -42,10 +41,10 @@ export default function CharacterSelect() {
                         </button>
                     ))}
                 </div>
-                <div className="w-1/4"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
+                <div className="w-1/4  p-4"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
                     <StatDisplay selected={selectedCharacter} />
                 </div>
-                <div className="w-1/4">
+                <div className="w-1/4  p-4">
                     <CharacterUtilities selected={selectedCharacter} />
                 </div>
             </div>

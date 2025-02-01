@@ -21,9 +21,9 @@ export default function TeamPreview() {
 
     return (
         <div>
-            <h2 className="text-2xl w-1/2">Team Preview</h2>
-            <div className="flex w-full">
+            <div className="flex justify-between">
                 <div className="w-1/2 self-start p-4">
+                    <h2 className="text-2xl w-1/2">Team Preview</h2>
                     {teamDisplay.map((chosenCharacter, index) => (
                         <div
                             key={index}
@@ -31,13 +31,13 @@ export default function TeamPreview() {
                             <p className="text-2xl">
                                 {chosenCharacter}
                             </p>
-                            <button className="btn-delete h-10" onClick={() => deleteByIndex(index)}>
+                            <button className="btn-delete" onClick={() => deleteByIndex(index)}>
                                 Delete
                             </button>
                         </div>
                     ))}
                 </div>
-                <div className="w-1/2">
+                <div className="w-1/2 p-4">
                     <CombinedQualitiesPreview />
                 </div>
             </div>
