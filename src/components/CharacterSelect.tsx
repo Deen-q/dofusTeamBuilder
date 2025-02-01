@@ -5,6 +5,7 @@ import SiteContext from "../context/SiteContext";
 import StatDisplay from "./StatDisplay";
 // import TeamPreview from "./TeamPreview";
 import { useTeamActions } from "../custom_hooks/useTeamActions";
+import CharacterUtilities from "./CharacterUtilities";
 
 export default function CharacterSelect() {
     const { addToTeamPreview } = useTeamActions();
@@ -40,9 +41,13 @@ export default function CharacterSelect() {
                         </button>
                     ))}
                 </div>
-                <div className="w-1/2"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
+                <div className="w-1/4"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
                     {/* <TeamPreview /> */}
                     <StatDisplay selected={selectedCharacter} />
+                </div>
+                <div className="w-1/4"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
+                    {/* <TeamPreview /> */}
+                    <CharacterUtilities selected={selectedCharacter} />
                 </div>
             </div>
         </div>

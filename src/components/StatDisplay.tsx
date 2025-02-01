@@ -18,7 +18,7 @@ export default function StatDisplay({ selected }: any) {
     // cant remove the return: "void isnt a valid jsx element" - gotta find where this is defined
     return (
         <div className="flex justify-between w-full gap-8"> {/* parent flex container */}
-            <div className="w-1/2">
+            <div>
                 <h2 className='text-2xl'>Stat Display</h2>
                 {selected ?
                     <h3>{selected?.className}</h3> : <h3>Please select a class.</h3>
@@ -31,10 +31,7 @@ export default function StatDisplay({ selected }: any) {
                 <h4 className='text-2xl'>Mobility Rating: {selected?.mobilityRating}</h4>
             </div>
 
-            <div className="w-1/2">
-                {/* the REAL 'Qualities Preview' - they show on class click! */}
-                <CharacterUtilities selected={selected} />
-            </div>
+
         </div>
     );
 }
