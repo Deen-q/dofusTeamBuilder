@@ -8,10 +8,9 @@ export const useTeamActions = () => {
         // alert/console logs breaks the code, throw new Error does not! This is because this stops execution.
         throw new Error("useTeamActions must be used within a SiteProvider");
     }
+    const { selectedCharacter, teamDisplay, setTeamDisplay, setTeamQualities } = context;
 
     const addToTeamPreview = (): void => {
-        const { selectedCharacter, teamDisplay, setTeamDisplay, setTeamQualities } = context;
-
         if (!selectedCharacter?.className) {
             alert("Please select a character.");
         } else if (teamDisplay.length < 4) {
