@@ -1,11 +1,9 @@
 /* Dofus Team Builder c: */
-import CharacterDisplay from './components/StatDisplay';
 import CharacterSelect from './components/CharacterSelect';
 import { SiteProvider } from './context/SiteContext';
 import TeamPreview from './components/TeamPreview';
-import QualitiesPreview from './components/CombinedQualitiesPreview';
-import './index.css';
 import AddAndReset from './components/AddAndReset';
+import './index.css';
 
 export default function App() {
   return (

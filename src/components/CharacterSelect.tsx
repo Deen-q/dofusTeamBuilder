@@ -14,6 +14,7 @@ export default function CharacterSelect() {
     };
 
     const {
+        selectedCharacter = [],
         setSelectedCharacter = () => { },
     } = context;
 
@@ -41,7 +42,7 @@ export default function CharacterSelect() {
                 </div>
                 <div className="w-1/2"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
                     {/* <TeamPreview /> */}
-                    <StatDisplay />
+                    <StatDisplay selected={selectedCharacter} />
                 </div>
             </div>
         </div>
