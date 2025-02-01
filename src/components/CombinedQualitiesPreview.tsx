@@ -10,7 +10,7 @@ export default function CombinedQualitiesPreview() {
     }
 
     const {
-        teamQualities = [],
+        teamQualities,
         // setTeamQualities = () => { }
         selectedCharacter
     } = context;

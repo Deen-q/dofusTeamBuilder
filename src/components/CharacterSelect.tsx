@@ -3,7 +3,6 @@ import { useContext } from "react";
 import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 import StatDisplay from "./StatDisplay";
-// import TeamPreview from "./TeamPreview";
 import { useTeamActions } from "../custom_hooks/useTeamActions";
 import CharacterUtilities from "./CharacterUtilities";
 
@@ -15,8 +14,8 @@ export default function CharacterSelect() {
     };
 
     const {
-        selectedCharacter = [],
-        setSelectedCharacter = () => { },
+        selectedCharacter,
+        setSelectedCharacter,
     } = context;
 
     const handleSelection = (character: CharacterBase) => {
@@ -25,7 +24,7 @@ export default function CharacterSelect() {
 
     return (
         <div>
-            <h2 className="text-2xl">Character Select</h2>
+            <h2 className="text-2xl w-1/2">Character Select</h2>
             <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
                 {/* Character Select buttons */}
                 <div className="w-1/2 space-y-8">
@@ -45,7 +44,7 @@ export default function CharacterSelect() {
                     {/* <TeamPreview /> */}
                     <StatDisplay selected={selectedCharacter} />
                 </div>
-                <div className="w-1/4"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
+                <div className="w-1/4">
                     {/* <TeamPreview /> */}
                     <CharacterUtilities selected={selectedCharacter} />
                 </div>

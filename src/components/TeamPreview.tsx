@@ -11,8 +11,8 @@ export default function TeamPreview() {
     }
 
     const {
-        teamDisplay = [],
-        setTeamDisplay = () => { }
+        teamDisplay,
+        setTeamDisplay
     } = context;
 
     const deleteByIndex = (indexToRemove: number) => {

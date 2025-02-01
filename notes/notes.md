@@ -1,5 +1,16 @@
 # Notes
 
+## interface
+1) establishing the expected shape of data
+2) different to Classes
+3) I may opt to have interfaces in all caps for better reading (casing can really throw me off sometimes)
+- interface: solely for enforcing structure
+- classes: can create objects, an can define functions.
+- i.e., classes create objects with defined behavior
+4) both can be used to enforce structure
+
+
+
 ## Context
 1) createContext - defined once and provides both Provider and Consumer needed to share state
 2) createContext comes from React's Context API (-> context *object* for state)
