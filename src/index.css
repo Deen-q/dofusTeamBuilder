@@ -18,9 +18,9 @@
 }
 
 .scroll {
-    max-height: 250px;
+    max-height: 175px; /*Make this dynamic*/
     overflow-y: auto;
-    color: rgb(255, 0, 0);
+    color: rgb(172, 172, 172);
 }
 
 .btn {

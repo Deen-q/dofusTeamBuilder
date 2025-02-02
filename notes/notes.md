@@ -1,4 +1,10 @@
-# Notes
+# Notes (aka, thinking out loud)
+
+## Code Design Notes:
+1) I want to draw out a component tree. Should help me see exactly which data currently locked up in Context could be passed as props
+2) iirc, currently selectedCharacter MAY be staying in context. Mainly because of useTeamActions
+3) should I remove useTeamActions?? Currently needed for onDoubleClick and AddAndReset
+4) Although AddAndReset could receive addToTeamPreview() and resetPreview() as props? Need to look again
 
 ## interface
 1) establishing the expected shape of data
@@ -8,8 +14,6 @@
 - classes: can create objects, an can define functions.
 - i.e., classes create objects with defined behavior
 4) both can be used to enforce structure
-
-
 
 ## Context
 1) createContext - defined once and provides both Provider and Consumer needed to share state
@@ -29,6 +33,5 @@ i.e., CharacterContext.tsx --> CharacterProvider
 3) I tried before by exporting the functions as is (inside of AddAndReset.tsx), but it was giving me issues - i.e., asking me to redefine types, despite already being defined in SiteContext (and SiteContextType).
 4) alternative to what I did: create a utility function instead of a custom hook. I didnt opt for this, because from the looks, I would be passing in 'context' to my onClicks, rather than the name of functions. Therefore, it seems cleaner (and more like React) to use a custom hook!
 
-## Design Notes
-1) Need to go back. Stat display, for selected char, should be on the right
-2) Combined stats and TeamPreview should be below?
+## Style Design Notes
+- up to date
