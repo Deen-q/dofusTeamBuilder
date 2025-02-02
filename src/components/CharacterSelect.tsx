@@ -1,5 +1,5 @@
 /* Dofus Team Builder c: */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 import StatDisplay from "./StatDisplay";
@@ -7,16 +7,13 @@ import CharacterUtilities from "./CharacterUtilities";
 import AddAndReset from "./AddAndReset";
 
 export default function CharacterSelect() {
+    const [selectedCharacter, setSelectedCharacter] = useState<CharacterBase | null>(null);
     const context = useContext(SiteContext);
     if (!context) {
         return <div> Error: SiteContext (CharacterSelect) is not available.</div>
     };
 
-    // selectedCharacter remains in context because useTeamActions requires it. 
-    // useTeamActions allows doubleClick functionality here, and add/remove to TeamPreview via AddAndReset
     const {
-        selectedCharacter,
-        setSelectedCharacter,
         teamDisplay,
         setTeamDisplay, 
         setTeamQualities
