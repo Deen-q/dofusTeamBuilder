@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import SiteContext from "../context/SiteContext";
 import CombinedQualitiesPreview from "./CombinedQualitiesPreview";
+import iopImage from "../assets/Iop_M.png";
 
 export default function TeamPreview() {
     const context = useContext(SiteContext);
@@ -23,15 +24,17 @@ export default function TeamPreview() {
         <div>
             <div className="flex justify-between">
                 <div className="w-1/2 self-start p-4">
-                    <h2 className="text-2xl w-1/2">Team Preview</h2>
+                    <h2 className="text-2xl">Team Preview</h2>
                     {teamDisplay.map((chosenCharacter, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-between p-1">
+                            className="flex items-center justify-between p-1"
+                        >
+                            <img src={iopImage} alt="" />
                             <p className="text-2xl">
                                 {chosenCharacter}
                             </p>
-                            <button className="btn-delete" onClick={() => deleteByIndex(index)}>
+                            <button className="btn-delete p-1" onClick={() => deleteByIndex(index)}>
                                 Delete
                             </button>
                         </div>

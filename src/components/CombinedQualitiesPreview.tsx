@@ -11,26 +11,22 @@ export default function CombinedQualitiesPreview() {
 
     const {
         teamQualities,
-        // setTeamQualities = () => { }
-        selectedCharacter
+        teamDisplay
     } = context;
 
     const noDupesList = new Set<string>(teamQualities);
     // console.log({ noDupesList });
 
     return (
-        <div>
-            <h2 className='text-2xl'>Combined Team Qualities</h2>
-            <ul>
-                {selectedCharacter && Array.from(noDupesList).map((quality, index) =>
+        <div >
+            <h2 className='text-2xl'>Combined Utilities</h2>
+            {/* {teamDisplay ? "Select at least 1 character." : ""} */}
+            <ul className="scroll">
+                {teamDisplay.length > 0 ? Array.from(noDupesList).map((quality, index) =>
                     // [noDupesList].map did not work - I guess Array.from converts to an arr 'earlier'?
                     <li key={index}>{quality}</li>
-                )}
+                ) : "Awaiting selection"}
             </ul>
         </div>
     )
 }
-
-// QualitiesPreview will sit next to TeamPreview
-
-// probs rename QualitiesPreview to CombinedQualitiesPreview // done
