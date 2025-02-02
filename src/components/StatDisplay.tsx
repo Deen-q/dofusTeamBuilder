@@ -5,7 +5,9 @@ interface StatDisplayProps {
     selected: CharacterBase | null;
 }
 
-export default function StatDisplay({ selected }: StatDisplayProps) {
+export default function StatDisplay({ 
+    selected 
+}: StatDisplayProps) {
 
     // cant remove the return: "void isnt a valid jsx element" - gotta find where this is defined
     return (

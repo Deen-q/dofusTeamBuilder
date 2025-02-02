@@ -3,11 +3,10 @@ import { useContext } from "react";
 import dofusClasses, { CharacterBase } from "../data/dofusClasses";
 import SiteContext from "../context/SiteContext";
 import StatDisplay from "./StatDisplay";
-import { useTeamActions } from "../custom_hooks/useTeamActions";
 import CharacterUtilities from "./CharacterUtilities";
+import AddAndReset from "./AddAndReset";
 
 export default function CharacterSelect() {
-    const { addToTeamPreview } = useTeamActions();
     const context = useContext(SiteContext);
     if (!context) {
         return <div> Error: SiteContext (CharacterSelect) is not available.</div>
@@ -18,13 +17,37 @@ export default function CharacterSelect() {
     const {
         selectedCharacter,
         setSelectedCharacter,
+        teamDisplay,
+        setTeamDisplay, 
+        setTeamQualities
     } = context;
 
     const handleSelection = (character: CharacterBase) => {
         setSelectedCharacter?.(character)
     };
 
+    const addToTeamPreview = (): void => {
+        if (!selectedCharacter?.className) {
+            alert("Please select a character.");
+        } else if (teamDisplay.length < 4) {
+            setTeamDisplay((prev) => [...prev, selectedCharacter.className]);
+            setTeamQualities((prev) => [
+                ...(prev ?? []),
+                ...selectedCharacter.qualities,
+            ]);
+        } else {
+            alert("Max of 4. Duplicate classes are acceptable.");
+        }
+    };
+
+    const resetTeamPreview = (): void => {
+        setSelectedCharacter(null);
+        setTeamDisplay([]);
+        setTeamQualities([]);
+    };
+
     return (
+        <>
         <div>
             <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
                 <div className="w-1/2 p-4">
@@ -49,5 +72,12 @@ export default function CharacterSelect() {
                 </div>
             </div>
         </div>
+        <div>
+            <AddAndReset 
+            addToTeamPreview={addToTeamPreview}
+            resetTeamPreview={resetTeamPreview}
+            />
+        </div>
+        </>
     )
 }
