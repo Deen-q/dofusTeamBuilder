@@ -20,7 +20,6 @@ export default function StatDisplay({
                 <h4 className='text-2xl'>DPS Rating: {selected?.dpsRating ?? "-"}</h4>
                 <h4 className='text-2xl'>Healing Rating: {selected?.healingRating ?? "-"}</h4>
                 {/* Likely need a Shield Point rating */}
-                {/* There is probs a better way to get effectiveRange as smaller letters */}
                 <h4 className='text-2xl'>Effective Range(s): </h4>
                 <p>{selected?.effectiveRange.join(", ") ?? "-"}</p>
                 <h4 className='text-2xl'>Mobility Rating: {selected?.mobilityRating ?? "-"}</h4>

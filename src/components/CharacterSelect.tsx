@@ -5,6 +5,8 @@ import SiteContext from "../context/SiteContext";
 import StatDisplay from "./StatDisplay";
 import CharacterUtilities from "./CharacterUtilities";
 import AddAndReset from "./AddAndReset";
+import TeamPreview from "./TeamPreview";
+import CombinedQualitiesPreview from "./CombinedQualitiesPreview";
 
 export default function CharacterSelect() {
     const [selectedCharacter, setSelectedCharacter] = useState<CharacterBase | null>(null);
@@ -47,7 +49,7 @@ export default function CharacterSelect() {
         <>
         <div>
             <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
-                <div className="w-1/2 p-4">
+                <div className="w-2/3 p-4">
                     <h2 className="text-2xl">Character Select</h2>
                     {dofusClasses.map((characterButton, index) => (
                         <button
@@ -61,11 +63,8 @@ export default function CharacterSelect() {
                         </button>
                     ))}
                 </div>
-                <div className="w-1/4  p-4"> {/*widths calculated independently despite being nested within a parent with w-1/2*/}
-                    <StatDisplay selected={selectedCharacter} />
-                </div>
-                <div className="w-1/4  p-4">
-                    <CharacterUtilities selected={selectedCharacter} />
+                <div className="w-1/3">
+                <TeamPreview />
                 </div>
             </div>
         </div>
@@ -74,6 +73,11 @@ export default function CharacterSelect() {
             addToTeamPreview={addToTeamPreview}
             resetTeamPreview={resetTeamPreview}
             />
+        </div>
+        <div className="flex">
+        <div className="w-1/3"><StatDisplay selected={selectedCharacter}/></div>
+        <div className="w-1/3"><CharacterUtilities selected={selectedCharacter} /></div>
+        <div className="w-1/3"><CombinedQualitiesPreview /></div>
         </div>
         </>
     )

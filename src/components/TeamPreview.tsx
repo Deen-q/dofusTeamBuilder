@@ -23,8 +23,8 @@ export default function TeamPreview() {
 
     return (
         <div>
-            <div className="flex justify-between">
-                <div className="w-1/2 self-start p-4">
+            <div>
+                <div className="p-4">
                     <h2 className="text-2xl">Team Preview</h2>
                     {teamDisplay.length > 0 ? teamDisplay.map((chosenCharacter, index) => (
                         <div
@@ -41,14 +41,14 @@ export default function TeamPreview() {
                         </div>
                     )) : "Awaiting selection."} {/*text is white*/}
                 </div>
-                <div className="w-1/4 p-4">
+                {/* <div className="w-1/4 p-4">
                     <CombinedQualitiesPreview />
-                </div>
-                <div className="w-1/4 p-4">
+                </div> */}
+                {/* <div className="w-1/4 p-4">
                     <Evaluation />
                     <p>(currently a c+p of Combined Utlities)</p>
                     <p>AIM: display important utilities missing from the current team!</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )
