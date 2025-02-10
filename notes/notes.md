@@ -27,5 +27,4 @@ i.e., CharacterContext.tsx --> CharacterProvider
 1) CharacterContext is created (createContext), followed by exporting the Provider (CharacterProvider) which will be used to wrap other components within App.tsx.
 
 ## Style Design Notes
-- Should team preview be next to character select? both with w-1/2?
-- ... and stat related stuff at the bottom (4 lots of w-1/4)?
+- TeamPreview should be w-1/2 and into a grid

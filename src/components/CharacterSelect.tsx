@@ -17,7 +17,7 @@ export default function CharacterSelect() {
 
     const {
         teamDisplay,
-        setTeamDisplay, 
+        setTeamDisplay,
         setTeamQualities
     } = context;
 
@@ -47,38 +47,39 @@ export default function CharacterSelect() {
 
     return (
         <>
-        <div>
-            <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
-                <div className="w-2/3 p-4">
-                    <h2 className="text-2xl">Character Select</h2>
-                    {dofusClasses.map((characterButton, index) => (
-                        <button
-                            className="btn h-12 m-1"
-                            key={index}
-                            // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
-                            onClick={() => handleSelection(characterButton)}
-                            onDoubleClick={addToTeamPreview}
-                        >
-                            {characterButton.className} {/*Iop, Cra etc.*/}
-                        </button>
-                    ))}
-                </div>
-                <div className="w-1/3">
-                <TeamPreview />
+            <div>
+                <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
+                    <div className="w-2/3 p-4">
+                        <h2 className="text-2xl">Character Select</h2>
+                        {dofusClasses.map((characterButton, index) => (
+                            <button
+                                className="btn h-12 m-1"
+                                key={index}
+                                // onMouseEnter={() => hoverButton(item.dpsRating)} // implement hover later
+                                onClick={() => handleSelection(characterButton)}
+                                onDoubleClick={addToTeamPreview}
+                            >
+                                {characterButton.className} {/*Iop, Cra etc.*/}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="w-1/3">
+                        {/* Make this w-1/2 and turn it into a grid! */}
+                        <TeamPreview />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <AddAndReset 
-            addToTeamPreview={addToTeamPreview}
-            resetTeamPreview={resetTeamPreview}
-            />
-        </div>
-        <div className="flex">
-        <div className="w-1/3"><StatDisplay selected={selectedCharacter}/></div>
-        <div className="w-1/3"><CharacterUtilities selected={selectedCharacter} /></div>
-        <div className="w-1/3"><CombinedQualitiesPreview /></div>
-        </div>
+            <div>
+                <AddAndReset
+                    addToTeamPreview={addToTeamPreview}
+                    resetTeamPreview={resetTeamPreview}
+                />
+            </div>
+            <div className="flex">
+                <div className="w-1/3 p-4"><StatDisplay selected={selectedCharacter} /></div>
+                <div className="w-1/3 p-4"><CharacterUtilities selected={selectedCharacter} /></div>
+                <div className="w-1/3 p-4"><CombinedQualitiesPreview /></div>
+            </div>
         </>
     )
 }

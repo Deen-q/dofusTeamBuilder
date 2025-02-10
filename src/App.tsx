@@ -9,7 +9,7 @@ export default function App() {
     <div>
       <h1 className='text-3xl'>DofusTeamBuilder</h1>
       <SiteProvider>
-        <CharacterSelect /> {/* StatDisplay, CharacterUtilities, AddAndReset */}
+        <CharacterSelect />
         {/* <TeamPreview /> */}
       </SiteProvider>
     </div>
