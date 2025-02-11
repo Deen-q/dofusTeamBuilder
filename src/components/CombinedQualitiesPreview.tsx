@@ -18,15 +18,16 @@ export default function CombinedQualitiesPreview() {
     // console.log({ noDupesList });
 
     return (
-        <div >
+        <div>
             <h2 className='text-2xl'>Combined Utilities</h2>
-            {/* {teamDisplay ? "Select at least 1 character." : ""} */}
-            <ul className="scroll">
-                {teamDisplay.length > 0 ? Array.from(noDupesList).map((quality, index) =>
-                    // [noDupesList].map did not work - I guess Array.from converts to an arr 'earlier'?
-                    <li key={index}>{quality}</li>
-                ) : "Awaiting selection."}
-            </ul>
+            {teamDisplay.length > 0 ? (
+                <ul className="scroll">
+                    {Array.from(noDupesList).map((quality, index) => (
+                        // [noDupesList].map did not work - I guess Array.from converts to an arr 'earlier'?
+                        <li key={index}>{quality}</li>
+                    ))}
+                </ul>
+            ) : <p className="text-slate-400">Awaiting Selection.</p>}
         </div>
     )
 }

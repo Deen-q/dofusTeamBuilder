@@ -21,26 +21,26 @@ export default function TeamPreview() {
 
     return (
         <div>
-            <div className="">
-                <div className="p-4">
-                    <h2 className="text-2xl">Team Preview</h2>
+            <div className="p-4">
+                <h2 className="text-2xl">Team Preview</h2>
+                {teamDisplay.length > 0 ? ( // prevent an empty div
                     <div className="grid grid-cols-2 gap-4">
-                        {teamDisplay.length > 0 ? teamDisplay.map((chosenCharacter, index) => (
+                        {teamDisplay.map((chosenCharacter, index) => (
                             <div
                                 key={index}
                                 className="flex items-center justify-between p-1"
                             >
                                 <img src={iopImage} alt="" />
-                                <p className="text-2xl">
-                                    {chosenCharacter}
-                                </p>
+                                <p className="text-2xl">{chosenCharacter}</p>
                                 <button className="btn-delete p-1" onClick={() => deleteByIndex(index)}>
                                     Delete
                                 </button>
                             </div>
-                        )) : "Awaiting selection."} {/*text is white*/}
+                        ))}
                     </div>
-                </div>
+                ) : (
+                    <p className="text-slate-200">Awaiting Selection.</p>
+                )}
             </div>
         </div>
     )
