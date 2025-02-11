@@ -1,7 +1,6 @@
 /* Dofus Team Builder c: */
 import CharacterSelect from './components/CharacterSelect';
 import { SiteProvider } from './context/SiteContext';
-import TeamPreview from './components/TeamPreview';
 import './index.css';
 
 export default function App() {
@@ -10,7 +9,6 @@ export default function App() {
       <h1 className='text-3xl'>DofusTeamBuilder</h1>
       <SiteProvider>
         <CharacterSelect />
-        {/* <TeamPreview /> */}
       </SiteProvider>
     </div>
   );

@@ -49,7 +49,7 @@ export default function CharacterSelect() {
         <>
             <div>
                 <div className="flex justify-between"> {/*flex for preview + buttons to be side by side*/}
-                    <div className="w-2/3 p-4">
+                    <div className="w-1/2 p-4">
                         <h2 className="text-2xl">Character Select</h2>
                         {dofusClasses.map((characterButton, index) => (
                             <button
@@ -63,7 +63,7 @@ export default function CharacterSelect() {
                             </button>
                         ))}
                     </div>
-                    <div className="w-1/3">
+                    <div className="w-1/2">
                         {/* Make this w-1/2 and turn it into a grid! */}
                         <TeamPreview />
                     </div>
