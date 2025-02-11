@@ -19,6 +19,7 @@ export default function CombinedQualitiesPreview() {
 
     return (
         <div>
+            {/* Want a count for every quality to display next to Combined Utilities */}
             <h2 className='text-2xl'>Combined Utilities</h2>
             {teamDisplay.length > 0 ? (
                 <ul className="scroll">
@@ -27,7 +28,7 @@ export default function CombinedQualitiesPreview() {
                         <li key={index}>{quality}</li>
                     ))}
                 </ul>
-            ) : <p className="text-slate-400">Awaiting Selection.</p>}
+            ) : <p className="text-slate-400">Work in progress...</p>}
         </div>
     )
 }

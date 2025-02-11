@@ -27,4 +27,5 @@ i.e., CharacterContext.tsx --> CharacterProvider
 1) CharacterContext is created (createContext), followed by exporting the Provider (CharacterProvider) which will be used to wrap other components within App.tsx.
 
 ## Style Design Notes
-- TeamPreview should be w-1/2 and into a grid
+- Want a count for every quality to display next to Combined Utilities and Character Utilities h2s
+- the idea is that it makes it more obvious that more utilities have been added, as you add to Team Preview

@@ -39,7 +39,7 @@ export default function TeamPreview() {
                         ))}
                     </div>
                 ) : (
-                    <p className="text-slate-200">Awaiting Selection.</p>
+                    <p className="text-slate-400">Awaiting Selection.</p>
                 )}
             </div>
         </div>
